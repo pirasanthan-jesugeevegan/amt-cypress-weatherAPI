@@ -23,14 +23,14 @@ jobs:
           $(npm bin)/cypress verify
           
       - name: Run Cypress tests
-        run: yarn cypress:run
+        run: yarn scripts
         continue-on-error: true
         
       - name: Merge test reports
-        run: yarn combine:report
+        run: yarn combine-reports
 
       - name: Generate HTML report
-        run: yarn generate:report
+        run: yarn generate-report
       
       - name: Deploy report page to GitHub Page
         uses: peaceiris/actions-gh-pages@v3
