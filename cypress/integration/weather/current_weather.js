@@ -2,8 +2,6 @@
 Get Current weather 
 */
 
-/// <reference types="cypress" />
-
 context('Get Current Weather', () => {
   it('Get weather data for a location - 200', () => {
     cy.request({
