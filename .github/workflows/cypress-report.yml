@@ -3,12 +3,11 @@
 
 name: Generate Cypress Report
 on:
+  schedule:
+   - cron: "0 0 * * *"
   push:
     branches:
       - 'master'
-  schedule:
-    - cron: '0 */12 * * *'
-
 jobs:
   cypress-test:
     name: Run on Chrome 83
@@ -16,19 +15,16 @@ jobs:
     container: cypress/browsers:node12.18.0-chrome83-ff77
     steps:
       - uses: actions/checkout@v2
-
       - name: Install cypress and verify
         run: |
-          yarn install --frozen-lockfile
+          npm ci
           $(npm bin)/cypress verify
           
       - name: Run Cypress tests
         run: yarn cypress:run
         continue-on-error: true
-        
       - name: Merge test reports
         run: yarn combine:report
-
       - name: Generate HTML report
         run: yarn generate:report
       
