@@ -1,0 +1,23 @@
+{
+  "name": "amt-cypress-weatherAPI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pirasanthan-jesugeevegan/amt-cypress-weatherAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pirasanthan-jesugeevegan/amt-cypress-weatherAPI/issues"
+  },
+  "homepage": "https://github.com/pirasanthan-jesugeevegan/amt-cypress-weatherAPI#readme",
+  "dependencies": {
+    "cypress": "^6.6.0"
+  }
+}

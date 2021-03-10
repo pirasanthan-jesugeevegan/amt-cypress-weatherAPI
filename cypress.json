@@ -1,0 +1,7 @@
+{
+  "env": {
+    "URL": "https://api.openweathermap.org/data/2.5/",
+    "APP_ID": "3aab69399bf03eca438758bf6e33d18e",
+    "LOCATION": "London"
+  }
+}
