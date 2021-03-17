@@ -3,7 +3,7 @@
 name: Generate Cypress Report
 on:
   schedule:
-   - cron: "*/1 * * * *"
+   - cron: "0 */2 * * *"
   push:
     branches:
       - 'master'
