@@ -1,14 +1,10 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Generate Cypress Report
 on:
+  schedule:
+   - cron: "0 0 * * *"
   push:
     branches:
       - 'master'
-  schedule:
-    - cron: '0 */12 * * *'
-
 jobs:
   cypress-test:
     name: Run on Chrome 83
@@ -16,21 +12,23 @@ jobs:
     container: cypress/browsers:node12.18.0-chrome83-ff77
     steps:
       - uses: actions/checkout@v2
-
       - name: Install cypress and verify
         run: |
-          yarn install --frozen-lockfile
+          npm ci
           $(npm bin)/cypress verify
           
       - name: Run Cypress tests
-        run: yarn scripts
+        run: npm run test:chrome
         continue-on-error: true
-        
+      - name: Copy test execution videos and screenshots
+        run: |
+          mkdir public
+          cp -r cypress/videos public/videos
+          cp -r cypress/screenshots public/screenshots
       - name: Merge test reports
-        run: yarn combine-reports
-
+        run: npm run combine:report
       - name: Generate HTML report
-        run: yarn generate-report
+        run: npm run generate:report
       
       - name: Deploy report page to GitHub Page
         uses: peaceiris/actions-gh-pages@v3
