@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scripts": "cypress run",
-    "combine-reports": "mochawesome-merge ./mochawesome-report/*.json -o index.json",
-    "generate-report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html",
-    "posttest": "npm run combine-reports && npm run generate-report",
-    "test": "npm run scripts || npm run posttest"
+    "test:chrome": "cypress run --browser chrome",
+    "combine:report": "mochawesome-merge ./mochawesome-report/*.json -o index.json",
+    "generate:report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
   },
   "repository": {
     "type": "git",
