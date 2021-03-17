@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "run": "test"
     "test:chrome": "cypress run --browser chrome",
     "combine:report": "mochawesome-merge ./mochawesome-report/*.json -o index.json",
     "generate:report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
